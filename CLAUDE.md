@@ -74,6 +74,22 @@ xcodebuild test -project pyqfenxi/pyqfenxi.xcodeproj -scheme pyqfenxi -destinati
 - Feature comparison tables and plan selection cards
 - Gradient designs emphasizing premium value proposition
 
+**DesignSystem.swift** - Comprehensive Design System
+- Romantic-themed color palette with gradients (`Colors.primaryGradient`, `Colors.heartPink`)
+- Typography system with rounded fonts and semantic weights
+- Spacing, corner radius, and shadow systems for consistent UI
+- Icon system with love/heart themed SF Symbols
+- Animation system with heartbeat and particle effects
+- Reusable components: `RomanticButton`, `HeartProgressView`, `FloatingHeartsView`
+- SwiftUI view extensions for consistent styling (`romanticCard()`, `heartGradientBackground()`)
+
+**NotificationManager.swift** - Push Notification Management
+- Singleton pattern for notification authorization and scheduling
+- Handles permission requests and status tracking
+- Schedules completion notifications for basic and premium analysis
+- Clears notifications and badge counts
+- Integrated with app lifecycle for permission checks
+
 ### API Integration Patterns
 
 **Image Processing Pipeline:**
@@ -96,6 +112,16 @@ The app uses SwiftUI's `@StateObject` and `@ObservableObject` pattern:
 - `@Published` properties trigger UI updates
 - Async operations use `MainActor.run` for UI updates
 - History persistence in memory (no Core Data)
+
+### Design System Architecture
+
+The app uses a comprehensive design system for consistent UI/UX:
+- **Romantic Theme**: Heart-centered color palette with pink/purple gradients
+- **Component Library**: Reusable components (`RomanticButton`, `HeartProgressView`)
+- **Animation System**: Heartbeat animations and floating particle effects
+- **Typography**: Rounded system fonts with semantic weight hierarchy
+- **Layout System**: Consistent spacing, shadows, and corner radius values
+- **Theme Integration**: SwiftUI view extensions for easy styling application
 
 ## Development Guidelines
 
@@ -146,13 +172,18 @@ The app uses SwiftUI's `@StateObject` and `@ObservableObject` pattern:
 pyqfenxi/
 ├── pyqfenxi.xcodeproj/     # Xcode project
 ├── pyqfenxi/               # Main source code
-│   ├── pyqfenxiApp.swift   # App entry point
-│   ├── ContentView.swift   # Main UI
-│   ├── APIService.swift    # AI integration
-│   ├── DataModels.swift    # Data structures
-│   └── Assets.xcassets/    # App assets
+│   ├── pyqfenxiApp.swift   # App entry point with NotificationManager integration
+│   ├── ContentView.swift   # Main UI with tab-based interface
+│   ├── APIService.swift    # AI integration with Doubao API
+│   ├── DataModels.swift    # Data structures and AnalysisManager
+│   ├── PremiumManager.swift # Premium subscription management
+│   ├── PremiumViews.swift  # Premium UI components
+│   ├── DesignSystem.swift  # Comprehensive design system and components
+│   ├── NotificationManager.swift # Push notification management
+│   └── Assets.xcassets/    # App assets and icons
 ├── pyqfenxiTests/          # Unit tests (Swift Testing)
-└── pyqfenxiUITests/        # UI tests (XCTest)
+├── pyqfenxiUITests/        # UI tests (XCTest)
+└── 版本说明.md             # Version notes (Chinese)
 ```
 
 ## Troubleshooting
